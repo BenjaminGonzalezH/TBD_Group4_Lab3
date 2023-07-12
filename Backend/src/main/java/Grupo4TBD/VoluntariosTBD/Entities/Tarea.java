@@ -1,6 +1,8 @@
 package Grupo4TBD.VoluntariosTBD.Entities;
 
 import lombok.*;
+import org.bson.codecs.pojo.annotations.BsonId;
+import org.bson.types.ObjectId;
 
 import java.sql.Date;
 
@@ -11,17 +13,15 @@ import java.sql.Date;
 @Getter
 @Setter
 public class Tarea {
-    private Integer id;
+    @BsonId
+    private ObjectId _id;
     private String nombre;
     private String descrip;
     private Integer cant_vol_requeridos;
     private Integer cant_vol_inscritos;
     private Integer id_emergencia;
-    private Date finicio;
-    private Date ffin;
-    private Integer id_estado;
-    //Cuidar formato WGS84, el cual establece
-    //que las coordenadas son angulares.
-    private Float latitud;
-    private Float longitud;
+    private Date fecha_inicio;
+    private Date fecha_fin;
+    private Estado_tarea estado;
+    private String emergencia;
 }

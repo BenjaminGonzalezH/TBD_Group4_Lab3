@@ -1,6 +1,8 @@
 package Grupo4TBD.VoluntariosTBD.Entities;
 
 import lombok.*;
+import org.bson.codecs.pojo.annotations.BsonId;
+import org.bson.types.ObjectId;
 
 import java.sql.Date;
 
@@ -11,14 +13,11 @@ import java.sql.Date;
 @Getter
 @Setter
 public class Emergencia {
-    private Integer id;
+    @BsonId
+    private ObjectId _id;
     private String nombre;
     private String descrip;
-    private Date finicio;
-    private Date ffin;
-    private Integer id_institucion;
-    //Cuidar formato WGS84, el cual establece
-    //que las coordenadas son angulares.
-    private Float latitud;
-    private Float longitud;
+    private Date fecha_inicio;
+    private Date fecha_fin;
+    private String institucion;
 }

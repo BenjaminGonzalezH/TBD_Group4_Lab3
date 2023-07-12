@@ -1,6 +1,8 @@
 package Grupo4TBD.VoluntariosTBD.Entities;
 
 import lombok.*;
+import org.bson.codecs.pojo.annotations.BsonId;
+import org.bson.types.ObjectId;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -9,7 +11,8 @@ import lombok.*;
 @Getter
 @Setter
 public class Institucion {
-    private Integer id;
+    @BsonId
+    private ObjectId _id;
     private String nombre;
     private String descrip;
 }

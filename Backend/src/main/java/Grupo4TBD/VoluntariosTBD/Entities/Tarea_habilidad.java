@@ -1,6 +1,10 @@
 package Grupo4TBD.VoluntariosTBD.Entities;
 
 import lombok.*;
+import org.bson.codecs.pojo.annotations.BsonId;
+import org.bson.types.ObjectId;
+
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -9,7 +13,8 @@ import lombok.*;
 @Getter
 @Setter
 public class Tarea_habilidad {
-    private Integer id;
-    private Integer id_emehab;
-    private Integer id_tarea;
+    @BsonId
+    private ObjectId _id;
+    private List<String> Par;
+    private String Tarea;
 }

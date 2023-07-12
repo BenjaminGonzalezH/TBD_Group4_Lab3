@@ -1,6 +1,8 @@
 package Grupo4TBD.VoluntariosTBD.Entities;
 
 import lombok.*;
+import org.bson.codecs.pojo.annotations.BsonId;
+import org.bson.types.ObjectId;
 
 
 @NoArgsConstructor
@@ -10,12 +12,9 @@ import lombok.*;
 @Getter
 @Setter
 public class Usuario {
-
-  private Integer id;
-
-  private String email;
-
-  private String password;
-
-  private String rol;
+    @BsonId
+    private ObjectId _id;
+    private String email;
+    private String password;
+    private String rol;
 }

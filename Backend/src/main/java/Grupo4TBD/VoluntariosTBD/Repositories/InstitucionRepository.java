@@ -1,19 +1,23 @@
 package Grupo4TBD.VoluntariosTBD.Repositories;
 
 import Grupo4TBD.VoluntariosTBD.Entities.Institucion;
-import org.springframework.stereotype.Repository;
+import org.bson.types.ObjectId;
 
 import java.util.List;
 
 
 public interface InstitucionRepository {
     //Create
-    public Institucion crear(Institucion institucion);
+    Institucion crear(Institucion institucion);
+
     //Read
-    public List<Institucion> getAll();
-    public List<Institucion> show(Integer id);
+    List<Institucion> getAll();
+
+    Institucion show(ObjectId id);
+
     //Update
-    public String update(Institucion institucion, Integer id);
+    String update(Institucion institucion, ObjectId id);
+
     //Delete
-    public void delete(Integer id);
+    void delete(ObjectId id);
 }

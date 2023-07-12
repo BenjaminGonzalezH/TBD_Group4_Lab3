@@ -2,6 +2,7 @@ package Grupo4TBD.VoluntariosTBD.Controllers;
 
 import Grupo4TBD.VoluntariosTBD.Entities.Estado_tarea;
 import Grupo4TBD.VoluntariosTBD.Repositories.Estado_tareaRepository;
+import org.bson.types.ObjectId;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +13,7 @@ import java.util.List;
 public class Estado_tareaController {
     private final Estado_tareaRepository Estado_tareaRepository;
 
-    Estado_tareaController(Estado_tareaRepository Estado_tareaRepository){
+    Estado_tareaController(Estado_tareaRepository Estado_tareaRepository) {
         this.Estado_tareaRepository = Estado_tareaRepository;
     }
 
@@ -22,16 +23,18 @@ public class Estado_tareaController {
     public Estado_tarea crear(@RequestBody Estado_tarea estado_tarea) {
         return Estado_tareaRepository.crear(estado_tarea);
     }
+
     // get R
     @GetMapping()
     @PreAuthorize("hasRole('ROLE_COORDINADOR') || hasRole('ROLE_VOLUNTARIO')")
     public List<Estado_tarea> getAllEstado_tarea() {
         return Estado_tareaRepository.getAll();
     }
+
     // get by id R
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('ROLE_COORDINADOR') || hasRole('ROLE_VOLUNTARIO')")
-    public List<Estado_tarea> show(@PathVariable Integer id){
+    public Estado_tarea show(@PathVariable ObjectId id) {
         return Estado_tareaRepository.show(id);
     }
 
@@ -39,14 +42,14 @@ public class Estado_tareaController {
     @PutMapping("/{id}")
     @ResponseBody
     @PreAuthorize("hasRole('ROLE_COORDINADOR') || hasRole('ROLE_VOLUNTARIO')")
-    public String updateEstado_tarea(@RequestBody Estado_tarea estado_tarea, @PathVariable Integer id){
-        return Estado_tareaRepository.update(estado_tarea,id);
+    public String updateEstado_tarea(@RequestBody Estado_tarea estado_tarea, @PathVariable ObjectId id) {
+        return Estado_tareaRepository.update(estado_tarea, id);
     }
 
     // borrar D
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ROLE_COORDINADOR')")
-    public void borrar(@PathVariable Integer id){
+    public void borrar(@PathVariable ObjectId id) {
         Estado_tareaRepository.delete(id);
     }
 }

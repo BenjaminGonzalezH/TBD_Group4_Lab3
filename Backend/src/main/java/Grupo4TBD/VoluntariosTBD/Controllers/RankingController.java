@@ -3,6 +3,7 @@ package Grupo4TBD.VoluntariosTBD.Controllers;
 import Grupo4TBD.VoluntariosTBD.Entities.Ranking;
 import Grupo4TBD.VoluntariosTBD.Entities.Voluntario;
 import Grupo4TBD.VoluntariosTBD.Repositories.RankingRepository;
+import org.bson.types.ObjectId;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +15,7 @@ public class RankingController {
 
     private final RankingRepository RankingRepository;
 
-    RankingController(RankingRepository RankingRepository){
+    RankingController(RankingRepository RankingRepository) {
         this.RankingRepository = RankingRepository;
     }
 
@@ -24,16 +25,18 @@ public class RankingController {
     public Ranking crear(@RequestBody Ranking ranking) {
         return RankingRepository.crear(ranking);
     }
+
     // get R
     @GetMapping()
     @PreAuthorize("hasRole('ROLE_COORDINADOR')")
     public List<Ranking> getAllRanking() {
         return RankingRepository.getAll();
     }
+
     // get by id R
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('ROLE_COORDINADOR')")
-    public List<Ranking> show(@PathVariable Integer id){
+    public Ranking show(@PathVariable ObjectId id) {
         return RankingRepository.show(id);
     }
 
@@ -41,20 +44,21 @@ public class RankingController {
     @PutMapping("/{id}")
     @ResponseBody
     @PreAuthorize("hasRole('ROLE_COORDINADOR')")
-    public String updateRanking(@RequestBody Ranking ranking, @PathVariable Integer id){
-        return RankingRepository.update(ranking,id);
+    public String updateRanking(@RequestBody Ranking ranking, @PathVariable ObjectId id) {
+        return RankingRepository.update(ranking, id);
     }
 
     // borrar D
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ROLE_COORDINADOR')")
-    public void borrar(@PathVariable Integer id){
+    public void borrar(@PathVariable ObjectId id) {
         RankingRepository.delete(id);
     }
 
-    @GetMapping("/select/{id_tarea}")
-    @PreAuthorize("hasRole('ROLE_COORDINADOR')")
-    public List<Voluntario> seleccionarVoluntarioPorTarea(@PathVariable Integer id_tarea){
-        return RankingRepository.seleccionarVoluntarioPorTarea(id_tarea);
-    }
+    // TODO: IMPLEMENTAR
+//    @GetMapping("/select/{id_tarea}")
+//    @PreAuthorize("hasRole('ROLE_COORDINADOR')")
+//    public List<Voluntario> seleccionarVoluntarioPorTarea(@PathVariable ObjectId id_tarea) {
+//        return RankingRepository.seleccionarVoluntarioPorTarea(id_tarea);
+//    }
 }

@@ -3,6 +3,7 @@ package Grupo4TBD.VoluntariosTBD.Controllers;
 import Grupo4TBD.VoluntariosTBD.Entities.Tarea;
 import Grupo4TBD.VoluntariosTBD.Entities.Voluntario;
 import Grupo4TBD.VoluntariosTBD.Repositories.TareaRepository;
+import org.bson.types.ObjectId;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,7 +33,7 @@ public class TareaController {
     // get by id R
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('ROLE_COORDINADOR') || hasRole('ROLE_VOLUNTARIO')")
-    public List<Tarea> show(@PathVariable Integer id){
+    public Tarea show(@PathVariable ObjectId id){
         return TareaRepository.show(id);
     }
 
@@ -40,21 +41,14 @@ public class TareaController {
     @PutMapping("/{id}")
     @ResponseBody
     @PreAuthorize("hasRole('ROLE_COORDINADOR')")
-    public String updateTarea(@RequestBody Tarea tarea, @PathVariable Integer id){
+    public String updateTarea(@RequestBody Tarea tarea, @PathVariable ObjectId id){
         return TareaRepository.update(tarea,id);
     }
 
     // borrar D
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ROLE_COORDINADOR')")
-    public void borrar(@PathVariable Integer id){
+    public void borrar(@PathVariable ObjectId id){
         TareaRepository.delete(id);
-    }
-
-    @GetMapping("/mapa/{id_tarea}/{numberLimit}")
-    @PreAuthorize("hasRole('ROLE_COORDINADOR')")
-    public List<Voluntario> cercanoTarea(@PathVariable Integer id_tarea, @PathVariable Integer numberLimit){
-        Tarea tarea = TareaRepository.show(id_tarea).get(0);
-        return TareaRepository.cercanosTarea(tarea, numberLimit);
     }
 }

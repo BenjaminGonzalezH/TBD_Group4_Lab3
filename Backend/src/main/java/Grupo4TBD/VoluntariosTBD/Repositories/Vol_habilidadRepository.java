@@ -1,6 +1,7 @@
 package Grupo4TBD.VoluntariosTBD.Repositories;
 
 import Grupo4TBD.VoluntariosTBD.Entities.Vol_habilidad;
+import org.bson.types.ObjectId;
 
 import java.util.List;
 
@@ -12,11 +13,11 @@ public interface Vol_habilidadRepository {
     //Read
     List<Vol_habilidad> getAll();
 
-    List<Vol_habilidad> show(Integer id);
+    Vol_habilidad show(ObjectId id);
 
     //Update
-    String update(Vol_habilidad volHabilidad, Integer id);
+    String update(Vol_habilidad volHabilidad, ObjectId id);
 
     //Delete
-    void delete(Integer id);
+    void delete(ObjectId id);
 }

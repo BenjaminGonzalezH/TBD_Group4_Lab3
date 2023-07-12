@@ -1,19 +1,23 @@
 package Grupo4TBD.VoluntariosTBD.Repositories;
 
 import Grupo4TBD.VoluntariosTBD.Entities.Tarea_habilidad;
-import org.springframework.stereotype.Repository;
+import org.bson.types.ObjectId;
 
 import java.util.List;
 
 
 public interface Tarea_habilidadRepository {
     //Create
-    public Tarea_habilidad crear(Tarea_habilidad tareaHabilidad);
+    Tarea_habilidad crear(Tarea_habilidad tareaHabilidad);
+
     //Read
-    public List<Tarea_habilidad> getAll();
-    public List<Tarea_habilidad> show(Integer id);
+    List<Tarea_habilidad> getAll();
+
+    Tarea_habilidad show(ObjectId id);
+
     //Update
-    public String update(Tarea_habilidad tareaHabilidad, Integer id);
+    String update(Tarea_habilidad tareaHabilidad, ObjectId id);
+
     //Delete
-    public void delete(Integer id);
+    void delete(ObjectId id);
 }

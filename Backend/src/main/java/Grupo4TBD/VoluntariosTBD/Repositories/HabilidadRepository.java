@@ -1,19 +1,23 @@
 package Grupo4TBD.VoluntariosTBD.Repositories;
 
 import Grupo4TBD.VoluntariosTBD.Entities.Habilidad;
-import org.springframework.stereotype.Repository;
+import org.bson.types.ObjectId;
 
 import java.util.List;
 
 
 public interface HabilidadRepository {
     //Create
-    public Habilidad crear(Habilidad habilidad);
+    Habilidad crear(Habilidad habilidad);
+
     //Read
-    public List<Habilidad> getAll();
-    public List<Habilidad> show(Integer id);
+    List<Habilidad> getAll();
+
+    Habilidad show(ObjectId id);
+
     //Update
-    public String update(Habilidad habilidad, Integer id);
+    String update(Habilidad habilidad, ObjectId id);
+
     //Delete
-    public void delete(Integer id);
+    void delete(ObjectId id);
 }

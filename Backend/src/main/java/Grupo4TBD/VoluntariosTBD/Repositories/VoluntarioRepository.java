@@ -1,23 +1,30 @@
 package Grupo4TBD.VoluntariosTBD.Repositories;
 
 import Grupo4TBD.VoluntariosTBD.Entities.Voluntario;
-import Grupo4TBD.VoluntariosTBD.Models.Requerimiento;
+import org.bson.types.ObjectId;
 
 import java.util.List;
 
 
-public interface VoluntarioRepository{
+public interface VoluntarioRepository {
     //Create
-    public Voluntario crear(Voluntario voluntario);
+    Voluntario crear(Voluntario voluntario);
+
     //Read
-    public List<Voluntario> getAll();
-    public List<Voluntario> show(Integer id);
+    List<Voluntario> getAll();
+
+    Voluntario show(ObjectId id);
+
     //Update
-    public String update(Voluntario voluntario, Integer id);
+    String update(Voluntario voluntario, ObjectId id);
+
     //Delete
-    public void delete(Integer id);
-    //Busca por id_usuario
-    public Voluntario findByUsuario(Integer id_usuario);
+    void delete(ObjectId id);
+
+    //
+    Voluntario findByUserEmail(String email);
+
+    // TODO: IMPLEMENTAR
     //Busca por id_habilidad el ranking de voluntarios de una emergencia
-    public List<Requerimiento> rankingVoluntariosRequerimientosEmergencia(Integer id_habilidad);
+    // List<Requerimiento> rankingVoluntariosRequerimientosEmergencia(ObjectId id_habilidad);
 }

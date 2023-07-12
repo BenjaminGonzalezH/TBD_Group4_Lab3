@@ -1,19 +1,23 @@
 package Grupo4TBD.VoluntariosTBD.Repositories;
 
 import Grupo4TBD.VoluntariosTBD.Entities.Emergencia;
-import org.springframework.stereotype.Repository;
+import org.bson.types.ObjectId;
 
 import java.util.List;
 
 
 public interface EmergenciaRepository {
     //Create
-    public Emergencia crear(Emergencia emergencia);
+    Emergencia crear(Emergencia emergencia);
+
     //Read
-    public List<Emergencia> getAll();
-    public List<Emergencia> show(Integer id);
+    List<Emergencia> getAll();
+
+    Emergencia show(ObjectId id);
+
     //Update
-    public String update(Emergencia emergencia, Integer id);
+    String update(Emergencia emergencia, ObjectId id);
+
     //Delete
-    public void delete(Integer id);
+    void delete(ObjectId id);
 }

@@ -17,12 +17,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -32,17 +28,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/auth")
 public class AuthController {
 
-    private final UsuarioRepository usuarioRepository;
-
-    private final VoluntarioRepository voluntarioRepository;
-
-    private final TokenUtils tokenUtils;
-
-    private final UserDetailsServiceImpl usuarioDetailsServiceImpl;
-
-    private final AuthenticationManager authenticationManager;
-
     private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
+    private final UsuarioRepository usuarioRepository;
+    private final VoluntarioRepository voluntarioRepository;
+    private final TokenUtils tokenUtils;
+    private final UserDetailsServiceImpl usuarioDetailsServiceImpl;
+    private final AuthenticationManager authenticationManager;
 
     // crear C
     @PostMapping("/register")
@@ -59,12 +50,10 @@ public class AuthController {
             return "ERROR: No se pudo registrar Usuario";
         Voluntario voluntario = new Voluntario();
         voluntario.setNombre(registro.getNombre());
-        voluntario.setId_usuario(usuario.getId());
-        voluntario.setLatitud(registro.getLatitud());
-        voluntario.setLongitud(registro.getLongitud());
+        voluntario.set_id(usuario.get_id());
         voluntario = voluntarioRepository.crear(voluntario);
         if (voluntario == null) {
-            usuarioRepository.delete(usuario.getId());
+            usuarioRepository.delete(usuario.get_id());
             return "ERROR: No se pudo registrar Usuario";
         }
         return "Usuario registrado exitosamente";
@@ -76,14 +65,12 @@ public class AuthController {
         Usuario usuario = usuarioRepository.getUserInSession();
         if (usuario == null)
             return null;
-        Voluntario voluntario = voluntarioRepository.findByUsuario(usuario.getId());
+        Voluntario voluntario = voluntarioRepository.findByUserEmail(usuario.getEmail());
         if (voluntario == null)
             return null;
-        sesion.setId(usuario.getId());
+        sesion.setId(usuario.get_id());
         sesion.setEmail(usuario.getEmail());
         sesion.setNombre(voluntario.getNombre());
-        sesion.setLongitud(voluntario.getLongitud());
-        sesion.setLatitud(voluntario.getLatitud());
         return sesion;
     }
 
@@ -99,7 +86,7 @@ public class AuthController {
             final UserDetailsImp userDetails = usuarioDetailsServiceImpl.loadUserByUsername(
                     authenticationReq.getEmail());
 
-            final String jwt = tokenUtils.createToken(userDetails);
+            final String jwt = TokenUtils.createToken(userDetails);
 
             Sesion sesion = new Sesion();
             Usuario usuario = usuarioRepository.findByEmail(authenticationReq.getEmail());
@@ -109,18 +96,16 @@ public class AuthController {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
             }
 
-            Voluntario voluntario = voluntarioRepository.findByUsuario(usuario.getId());
+            Voluntario voluntario = voluntarioRepository.findByUserEmail(usuario.getEmail());
 
             if (voluntario == null) {
                 // No se encontró el voluntario asociado al usuario
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
             }
 
-            sesion.setId(usuario.getId());
+            sesion.setId(usuario.get_id());
             sesion.setEmail(usuario.getEmail());
             sesion.setNombre(voluntario.getNombre());
-            sesion.setLongitud(voluntario.getLongitud());
-            sesion.setLatitud(voluntario.getLatitud());
 
             return ResponseEntity.ok(new TokenInfo(sesion, jwt));
         } catch (AuthenticationException e) {

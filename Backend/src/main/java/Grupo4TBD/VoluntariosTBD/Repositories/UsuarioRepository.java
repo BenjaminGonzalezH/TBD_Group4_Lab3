@@ -1,21 +1,30 @@
 package Grupo4TBD.VoluntariosTBD.Repositories;
 
 import Grupo4TBD.VoluntariosTBD.Entities.Usuario;
+import org.bson.types.ObjectId;
 
 import java.util.List;
 
 public interface UsuarioRepository {
     //Create
-    public Usuario crear(Usuario usuario);
+    Usuario crear(Usuario usuario);
+
     //Read
-    public List<Usuario> getAll();
-    public List<Usuario> show(Integer id);
+    List<Usuario> getAll();
+
+    Usuario show(ObjectId id);
+
     //Update
-    public String update(Usuario usuario, Integer id);
+    String update(Usuario usuario, ObjectId id);
+
     //Delete
-    public void delete(Integer id);
+    void delete(ObjectId id);
+
+    // TODO: IMPLEMENTAR
     //Read by email
-    public Usuario findByEmail(String email);
+    Usuario findByEmail(String email);
+
+    // TODO: IMPLEMENTAR
     //Read session
-    public Usuario getUserInSession();
+    Usuario getUserInSession();
 }

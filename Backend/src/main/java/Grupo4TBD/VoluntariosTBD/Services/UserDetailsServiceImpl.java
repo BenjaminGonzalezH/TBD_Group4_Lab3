@@ -10,26 +10,25 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 
-
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-  @Autowired
-  private UsuarioRepository usuarioRepository;
-  @Autowired
-  private VoluntarioRepository voluntarioRepository;
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+    @Autowired
+    private VoluntarioRepository voluntarioRepository;
 
-  @Override
-  public UserDetailsImp loadUserByUsername(String email) throws UsernameNotFoundException {
-    Usuario usuario = usuarioRepository.findByEmail(email);
-    if (usuario == null) {
-      throw new UsernameNotFoundException("El usuario con email " + email + "no existe");
+    @Override
+    public UserDetailsImp loadUserByUsername(String email) throws UsernameNotFoundException {
+        Usuario usuario = usuarioRepository.findByEmail(email);
+        if (usuario == null) {
+            throw new UsernameNotFoundException("El usuario con email " + email + "no existe");
+        }
+        Voluntario voluntario = voluntarioRepository.findByUserEmail(usuario.getEmail());
+        if (voluntario == null) {
+            throw new UsernameNotFoundException("El usuario con email " + email + "no existe");
+        }
+        return new UserDetailsImp(usuario, voluntario.getNombre());
     }
-    Voluntario voluntario = voluntarioRepository.findByUsuario(usuario.getId());
-    if (voluntario == null) {
-      throw new UsernameNotFoundException("El usuario con email " + email + "no existe");
-    }
-    return new UserDetailsImp(usuario, voluntario.getNombre());
-  }
 
 }

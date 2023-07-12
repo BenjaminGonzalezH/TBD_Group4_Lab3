@@ -1,0 +1,81 @@
+db.emergencia.insertMany([
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a20"),
+    "nombre": "Terremoto Grado 9.5 Puerto Williams",
+    "descrip": "En la región de puerto Williams se produjo un terremoto de grado 9.5 (Richter) que causo estragos en la infraestructura.",
+    "fecha_inicio": new Date(2022,06,20),
+    "fecha_fin": new Date(2022,06,21),
+    "institucion": "Earthquake response team"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a21"),
+    "nombre": "Incendio en Santiago Centro",
+    "descrip": "Un incendio en la zona poblacional de la comuna de Santiago",
+    "fecha_inicio": new Date(2021,05,14),
+    "fecha_fin": new Date(2021,05,17),
+    "institucion": "FireFigthers para Chile"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a22"),
+    "nombre": "Tiroteo en Instituto Nacional",
+    "descrip": "Una protesta dentro de la institucion termino en un tiroteo",
+    "fecha_inicio": new Date(2023,08,01),
+    "fecha_fin": new Date(2023,08,01),
+    "institucion": "EADE (Equipo anti disturbios escolares)"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a23"),
+    "nombre": "Inundacion en Puerto Varas",
+    "descrip": "Una fuerte lluvia realizo desborde en los rios que genero inundaciones en el pueblo",
+    "fecha_inicio": new Date(2013,09,10),
+    "fecha_fin": new Date(2013,09,17),
+    "institucion": "Organizacion de contencion maritima"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a24"),
+    "nombre": "Incendio Forestal en Temuco",
+    "descrip": "Se produjo un incendio forestal en los alrededores boscozos de temuco",
+    "fecha_inicio": new Date(2022,11,12),
+    "fecha_fin": new Date(2022,11,22),
+    "institucion": "FireFigthers para Chile"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a25"),
+    "nombre": "Avalancha en la cordillera",
+    "descrip": "Un terrmoto de poco poder y ademas de gritos a lo largo de la cordillera genero avalancha atrapando civiles",
+    "fecha_inicio": new Date(2001,01,01),
+    "fecha_fin": new Date(2001,01,01),
+    "institucion": "iCE climbers Chile"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a26"),
+    "nombre": "Tsunami en Concon",
+    "descrip": "El titulo es bastante concisp ¿Verdad?",
+    "fecha_inicio": new Date(2012,06,05),
+    "fecha_fin": new Date(2012,06,05),
+    "institucion": "Organizacion de contencion maritima"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a27"),
+    "nombre": "Tormenta de arena en atacama",
+    "descrip": "Esto es una descripcion",
+    "fecha_inicio": new Date(2000,03,02),
+    "fecha_fin": new Date(2000,03,06),
+    "institucion": "Sand Help"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a28"),
+    "nombre": "Huracan en Puerto Williams",
+    "descrip": "Dios tiene caprichos raros",
+    "fecha_inicio": new Date(2000,10,12),
+    "fecha_fin": new Date(2000,10,12),
+    "institucion": "Equipo de contencion maritima"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a29"),
+    "nombre": "Derrumbe de complejo de apartamentos Quilicura se expande",
+    "descrip": "Momento Quilicura",
+    "fecha_inicio": new Date(2007,04,10),
+    "fecha_fin": new Date(2007,04,10),
+    "institucion": "Organización de recuperacion del concreto"
+}]);

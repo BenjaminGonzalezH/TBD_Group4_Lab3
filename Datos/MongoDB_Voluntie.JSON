@@ -1,0 +1,42 @@
+db.voluntario.insertMany([
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a40"),
+    "nombre": "Ricardo Martinez"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a41"),
+    "nombre": "Juan Gomez Perez"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a42"),
+    "nombre": "Belen Soto"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a43"),
+    "nombre": "Monica Villanueva"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a44"),
+    "nombre": "Pablo Gonzalez"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a45"),
+    "nombre": "Francisca Vergara"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a46"),
+    "nombre": "Elsa Pato"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a47"),
+    "nombre": "Armando Mocha"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a48"),
+    "nombre": "Miguel Conde"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a49"),
+    "nombre": "Alma Marin"
+}
+]);

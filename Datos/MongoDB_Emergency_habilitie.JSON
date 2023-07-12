@@ -1,0 +1,77 @@
+db.eme_habilidad.insertMany([
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a60"),
+    "emergencia": "Terremoto Grado 9.5 Puerto Williams",
+    "habilidad": "Mover objetos pesados"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a61"),
+    "emergencia": "Terremoto Grado 9.5 Puerto Williams",
+    "habilidad": "Cocinar"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a62"),
+    "emergencia": "Terremoto Grado 9.5 Puerto Williams",
+    "habilidad": "Practicar primeros auxilios"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a63"),
+    "emergencia": "Incendio en Santiago Centro",
+    "habilidad": "Carpinteria"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a64"),
+    "emergencia": "Incendio en Santiago Centro",
+    "habilidad": "Capacidad de usar mangueras de incendio"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a65"),
+    "emergencia": "Tiroteo en Instituto Nacional",
+    "habilidad": "Carpinteria"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a66"),
+    "emergencia": "Tiroteo en Instituto Nacional",
+    "habilidad": "Construccion con concreto"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a67"),
+    "emergencia": "Tiroteo en Instituto Nacional",
+    "habilidad": "Practicar primeros auxilios"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a68"),
+    "emergencia": "Inundacion en Puerto Varas",
+    "habilidad": "Cocinar"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a69"),
+    "emergencia": "Inundacion en Puerto Varas",
+    "habilidad": "Construccion con concreto"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a6a"),
+    "emergencia": "Inundacion en Puerto Varas",
+    "habilidad": "Carpinteria"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a6b"),
+    "emergencia": "Incendio Forestal en Temuco",
+    "habilidad": "Capacidad de usar mangueras de incendio"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a6c"),
+    "emergencia": "Avalancha en la cordillera",
+    "habilidad": "Escalado de montañas"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a6d"),
+    "emergencia": "Tsunami en Concon",
+    "habilidad": "Construccion con concreto"
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a6e"),
+    "emergencia": "Huracan en Puerto Williams",
+    "habilidad": "Conduccion de vehiculos acuaticos"
+}
+]);

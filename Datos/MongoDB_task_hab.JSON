@@ -1,0 +1,77 @@
+db.tarea_habilidad.insertMany([
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a70"),
+    "Par": ["Terremoto Grado 9.5 Puerto Williams", "Mover objetos pesados"],
+    "Tarea": "Recoleccion de escombros",
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a71"),
+    "Par": ["Terremoto Grado 9.5 Puerto Williams", "Cocinar"],
+    "Tarea": "Cocina de alimentos a afectados",
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a72"),
+    "Par": ["Terremoto Grado 9.5 Puerto Williams", "Practicar primeros auxilios"],
+    "Tarea": "Examinacion medica",
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a73"),
+    "Par": ["Incendio en Santiago Centro", "Cocinar"],
+    "Tarea": "Cocinar alimentos a damnificados",
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a74"),
+    "Par": ["Incendio en Santiago Centro", "Practicar primeros auxilios"],
+    "Tarea": "Examinacion medica",
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a75"),
+    "Par": ["Tiroteo en Instituto Nacional", "Practicar primeros auxilios"],
+    "Tarea": "Recoleccion de insumos medicos",
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a76"),
+    "Par": ["Tiroteo en Instituto Nacional", "Construccion con concreto"],
+    "Tarea": "Reparacion de infraestructura",
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a77"),
+    "Par": ["Tiroteo en Instituto Nacional", "Practicar primeros auxilios"],
+    "Tarea": "Tratamientos medicos a heridos",
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a78"),
+    "Par": ["Inundacion en Puerto Varas", "Cocinar"],
+    "Tarea": "Reparticion de almuerzos a damnificados",
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a79"),
+    "Par": ["Inundacion en Puerto Varas", "Mover objetos pesados"],
+    "Tarea": "Recoleccion de basura",
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a7a"),
+    "Par": ["Inundacion en Puerto Varas", "Carpinteria"],
+    "Tarea": "Recuperacion de objetos",
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a7b"),
+    "Par": ["Incendio Forestal en Temuco", "Capacidad de usar mangueras de incendio"],
+    "Tarea": "Control de Fuego",
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a7c"),
+    "Par": ["Avalancha en la cordillera", "Escalado de montañas"],
+    "Tarea": "Rescate de heridos",
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a7d"),
+    "Par": ["Tsunami en Concon", "Construccion con concreto"],
+    "Tarea": "Reparacion de hogares",
+},
+{
+    "_id": ObjectId("60e9fe0e83de6776a8e27a7e"),
+    "Par": ["Huracan en Puerto Williams", "Conduccion de vehiculos acuaticos"],
+    "Tarea": "Busqueda de sobrevivientes",
+}
+]);

@@ -6,7 +6,6 @@ import Grupo4TBD.VoluntariosTBD.Models.AuthCredentials;
 import Grupo4TBD.VoluntariosTBD.Models.Register;
 import Grupo4TBD.VoluntariosTBD.Models.Sesion;
 import Grupo4TBD.VoluntariosTBD.Models.TokenInfo;
-import Grupo4TBD.VoluntariosTBD.Repositories.UsuarioRepository;
 import Grupo4TBD.VoluntariosTBD.Repositories.VoluntarioRepository;
 import Grupo4TBD.VoluntariosTBD.Services.TokenUtils;
 import Grupo4TBD.VoluntariosTBD.Services.UserDetailsImp;
@@ -29,7 +28,6 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
-    private final UsuarioRepository usuarioRepository;
     private final VoluntarioRepository voluntarioRepository;
     private final TokenUtils tokenUtils;
     private final UserDetailsServiceImpl usuarioDetailsServiceImpl;
@@ -43,17 +41,13 @@ public class AuthController {
         usuario.setRol("VOLUNTARIO"); // Rol por defecto
         usuario.setPassword(passwordEncoder().encode(registro.getPassword()));
         // Usuario ya registrado
-        if (usuarioRepository.findByEmail(usuario.getEmail()) != null)
+        if (voluntarioRepository.findByUserEmail(usuario.getEmail()) != null)
             return "Email ya se encuentra registrado";
-        usuario = usuarioRepository.crear(usuario);
-        if (usuario == null)
-            return "ERROR: No se pudo registrar Usuario";
         Voluntario voluntario = new Voluntario();
         voluntario.setNombre(registro.getNombre());
-        voluntario.set_id(usuario.get_id());
+        voluntario.setUsuario(usuario);
         voluntario = voluntarioRepository.crear(voluntario);
         if (voluntario == null) {
-            usuarioRepository.delete(usuario.get_id());
             return "ERROR: No se pudo registrar Usuario";
         }
         return "Usuario registrado exitosamente";
@@ -62,13 +56,13 @@ public class AuthController {
     @GetMapping("/sesion")
     public Sesion sesion() {
         Sesion sesion = new Sesion();
-        Usuario usuario = usuarioRepository.getUserInSession();
+        Usuario usuario = voluntarioRepository.getUserInSession();
         if (usuario == null)
             return null;
         Voluntario voluntario = voluntarioRepository.findByUserEmail(usuario.getEmail());
         if (voluntario == null)
             return null;
-        sesion.setId(usuario.get_id());
+        sesion.setId(voluntario.get_id());
         sesion.setEmail(usuario.getEmail());
         sesion.setNombre(voluntario.getNombre());
         return sesion;
@@ -89,7 +83,7 @@ public class AuthController {
             final String jwt = TokenUtils.createToken(userDetails);
 
             Sesion sesion = new Sesion();
-            Usuario usuario = usuarioRepository.findByEmail(authenticationReq.getEmail());
+            Usuario usuario = voluntarioRepository.findByUserEmail(authenticationReq.getEmail()).getUsuario();
 
             if (usuario == null) {
                 // El usuario no existe
@@ -103,7 +97,7 @@ public class AuthController {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
             }
 
-            sesion.setId(usuario.get_id());
+            sesion.setId(voluntario.get_id());
             sesion.setEmail(usuario.getEmail());
             sesion.setNombre(voluntario.getNombre());
 

@@ -1,5 +1,6 @@
 package Grupo4TBD.VoluntariosTBD.Repositories.RepositoriesImplement;
 
+import Grupo4TBD.VoluntariosTBD.Entities.Usuario;
 import Grupo4TBD.VoluntariosTBD.Entities.Voluntario;
 import Grupo4TBD.VoluntariosTBD.Repositories.VoluntarioRepository;
 import com.mongodb.client.MongoCollection;
@@ -7,6 +8,8 @@ import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -58,4 +61,10 @@ public class VoluntarioRepoImp implements VoluntarioRepository {
         return collection.find(new Document("usuario.email", email)).first();
     }
 
+    @Override
+    public Usuario getUserInSession() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String email = (String) auth.getPrincipal();
+        return this.findByUserEmail(email).getUsuario();
+    }
 }

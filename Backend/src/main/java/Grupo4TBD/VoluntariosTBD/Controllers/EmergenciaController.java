@@ -3,7 +3,6 @@ package Grupo4TBD.VoluntariosTBD.Controllers;
 import Grupo4TBD.VoluntariosTBD.Entities.Emergencia;
 import Grupo4TBD.VoluntariosTBD.Repositories.EmergenciaRepository;
 import org.bson.types.ObjectId;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,28 +18,24 @@ public class EmergenciaController {
 
     // crear C
     @PostMapping()
-    @PreAuthorize("hasRole('ROLE_COORDINADOR')")
     public Emergencia crear(@RequestBody Emergencia emergencia) {
         return EmergenciaRepository.crear(emergencia);
     }
 
     // get R
     @GetMapping("")
-    @PreAuthorize("hasRole('ROLE_COORDINADOR') || hasRole('ROLE_VOLUNTARIO')")
     public List<Emergencia> getAllEmergencia() {
         return EmergenciaRepository.getAll();
     }
 
     // get by id R
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ROLE_COORDINADOR') || hasRole('ROLE_VOLUNTARIO')")
     public Emergencia show(@PathVariable ObjectId id) {
         return EmergenciaRepository.show(id);
     }
 
     // actualizar U
     @PutMapping("/{id}")
-    @PreAuthorize("hasRole('ROLE_COORDINADOR')")
     @ResponseBody
     public String updateEmergencia(@RequestBody Emergencia emergencia, @PathVariable ObjectId id) {
         return EmergenciaRepository.update(emergencia, id);
@@ -48,7 +43,6 @@ public class EmergenciaController {
 
     // borrar D
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ROLE_COORDINADOR')")
     public void borrar(@PathVariable ObjectId id) {
         EmergenciaRepository.delete(id);
     }

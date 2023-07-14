@@ -4,7 +4,6 @@ package Grupo4TBD.VoluntariosTBD.Controllers;
 import Grupo4TBD.VoluntariosTBD.Entities.Vol_habilidad;
 import Grupo4TBD.VoluntariosTBD.Repositories.Vol_habilidadRepository;
 import org.bson.types.ObjectId;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,21 +20,18 @@ public class Vol_habilidadController {
 
     // crear C
     @PostMapping()
-    @PreAuthorize("hasRole('ROLE_COORDINADOR') || hasRole('ROLE_VOLUNTARIO')")
     public Vol_habilidad crear(@RequestBody Vol_habilidad vol_habilidad) {
         return Vol_habilidadRepository.crear(vol_habilidad);
     }
 
     // get R
     @GetMapping()
-    @PreAuthorize("hasRole('ROLE_COORDINADOR') || hasRole('ROLE_VOLUNTARIO')")
     public List<Vol_habilidad> getAllVol_habilidad() {
         return Vol_habilidadRepository.getAll();
     }
 
     // get by id R
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ROLE_COORDINADOR') || hasRole('ROLE_VOLUNTARIO')")
     public Vol_habilidad show(@PathVariable ObjectId id) {
         return Vol_habilidadRepository.show(id);
     }
@@ -43,14 +39,12 @@ public class Vol_habilidadController {
     // actualizar U
     @PutMapping("/{id}")
     @ResponseBody
-    @PreAuthorize("hasRole('ROLE_COORDINADOR')")
     public String updateVol_habilidad(@RequestBody Vol_habilidad vol_habilidad, @PathVariable ObjectId id) {
         return Vol_habilidadRepository.update(vol_habilidad, id);
     }
 
     // borrar D
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ROLE_COORDINADOR')")
     public void borrar(@PathVariable ObjectId id) {
         Vol_habilidadRepository.delete(id);
     }

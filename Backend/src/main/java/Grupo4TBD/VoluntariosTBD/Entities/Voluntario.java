@@ -14,5 +14,4 @@ public class Voluntario {
     @BsonId
     private ObjectId _id;
     private String nombre;
-    private Usuario usuario;
 }

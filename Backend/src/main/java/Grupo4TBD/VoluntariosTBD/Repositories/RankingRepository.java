@@ -20,9 +20,4 @@ public interface RankingRepository {
 
     //Delete
     void delete(ObjectId id);
-
-
-    // TODO: IMPLEMENTAR
-    // Selecciona voluntarios por tarea
-    //List<Voluntario> seleccionarVoluntarioPorTarea(Integer id_tarea);
 }

@@ -21,7 +21,6 @@ public class Eme_habilidadRepoImp implements Eme_habilidadRepository {
     @Override
     public Eme_habilidad crear(Eme_habilidad eme_habilidad) {
         MongoCollection<Eme_habilidad> collection = database.getCollection(DB, Eme_habilidad.class);
-        eme_habilidad.set_id(new ObjectId());
         collection.insertOne(eme_habilidad);
         return eme_habilidad;
     }

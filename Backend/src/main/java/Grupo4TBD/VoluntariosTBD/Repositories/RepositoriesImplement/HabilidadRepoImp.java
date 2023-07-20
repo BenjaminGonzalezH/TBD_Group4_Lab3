@@ -21,7 +21,6 @@ public class HabilidadRepoImp implements HabilidadRepository {
     @Override
     public Habilidad crear(Habilidad habilidad) {
         MongoCollection<Habilidad> collection = database.getCollection(DB, Habilidad.class);
-        habilidad.set_id(new ObjectId());
         collection.insertOne(habilidad);
         return habilidad;
     }

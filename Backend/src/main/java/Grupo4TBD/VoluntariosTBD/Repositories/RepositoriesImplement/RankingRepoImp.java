@@ -21,7 +21,6 @@ public class RankingRepoImp implements RankingRepository {
     @Override
     public Ranking crear(Ranking ranking) {
         MongoCollection<Ranking> collection = database.getCollection(DB, Ranking.class);
-        ranking.set_id(new ObjectId());
         collection.insertOne(ranking);
         return ranking;
     }

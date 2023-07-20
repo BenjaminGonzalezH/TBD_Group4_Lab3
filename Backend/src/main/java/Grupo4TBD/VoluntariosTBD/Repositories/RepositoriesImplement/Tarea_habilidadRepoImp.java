@@ -21,7 +21,6 @@ public class Tarea_habilidadRepoImp implements Tarea_habilidadRepository {
     @Override
     public Tarea_habilidad crear(Tarea_habilidad tarea_habilidad) {
         MongoCollection<Tarea_habilidad> collection = database.getCollection(DB, Tarea_habilidad.class);
-        tarea_habilidad.set_id(new ObjectId());
         collection.insertOne(tarea_habilidad);
         return tarea_habilidad;
     }

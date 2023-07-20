@@ -21,4 +21,7 @@ public interface VoluntarioRepository {
     //Delete
     void delete(ObjectId id);
 
+    // Obtener tarea
+    List<Voluntario> obtenerVoluntariosPorTarea(String tarea);
+
 }

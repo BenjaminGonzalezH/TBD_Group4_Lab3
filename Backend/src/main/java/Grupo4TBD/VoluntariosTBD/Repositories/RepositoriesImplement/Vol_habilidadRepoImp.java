@@ -22,7 +22,6 @@ public class Vol_habilidadRepoImp implements Vol_habilidadRepository {
     @Override
     public Vol_habilidad crear(Vol_habilidad vol_habilidad) {
         MongoCollection<Vol_habilidad> collection = database.getCollection(DB, Vol_habilidad.class);
-        vol_habilidad.set_id(new ObjectId());
         collection.insertOne(vol_habilidad);
         return vol_habilidad;
     }

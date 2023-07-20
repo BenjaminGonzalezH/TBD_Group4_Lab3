@@ -3,6 +3,7 @@ package Grupo4TBD.VoluntariosTBD.Controllers;
 import Grupo4TBD.VoluntariosTBD.Entities.Voluntario;
 import Grupo4TBD.VoluntariosTBD.Repositories.VoluntarioRepository;
 import org.bson.types.ObjectId;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -45,5 +46,15 @@ public class VoluntarioController {
     @DeleteMapping("/{id}")
     public void borrar(@PathVariable ObjectId id) {
         VoluntarioRepository.delete(id);
+    }
+
+    @GetMapping("/tarea/{nombreTarea}")
+    public ResponseEntity<List<Voluntario>> getVoluntariosPorTarea(@PathVariable String nombreTarea) {
+        List<Voluntario> voluntarios = VoluntarioRepository.obtenerVoluntariosPorTarea(nombreTarea);
+        if (voluntarios.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(voluntarios);
+        }
     }
 }

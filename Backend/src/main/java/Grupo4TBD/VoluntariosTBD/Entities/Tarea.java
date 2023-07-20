@@ -22,6 +22,5 @@ public class Tarea {
     private Integer id_emergencia;
     private Date fecha_inicio;
     private Date fecha_fin;
-    private Estado_tarea estado;
     private String emergencia;
 }

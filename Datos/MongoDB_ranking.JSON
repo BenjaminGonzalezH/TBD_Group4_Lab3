@@ -1,6 +1,6 @@
 db.ranking.insertMany([
 {
-    "_id": ObjectId(),
+    "_id": ObjectId("60e9fe0e83de6776a8e27a80"),
     "voluntario": "Ricardo Martinez",
     "tarea": "Recoleccion de escombros",
     "puntaje": 10,
@@ -8,7 +8,7 @@ db.ranking.insertMany([
     "flg_participa": 1
 },
 {
-    "_id": ObjectId(),
+    "_id": ObjectId("60e9fe0e83de6776a8e27a81"),
     "voluntario": "Ricardo Martinez",
     "tarea": "Desplazamiento de agua",
     "puntaje": 12,
@@ -16,7 +16,7 @@ db.ranking.insertMany([
     "flg_participa": 0
 },
 {
-    "_id": ObjectId(),
+    "_id": ObjectId("60e9fe0e83de6776a8e27a82"),
     "voluntario": "Belen Soto",
     "tarea": "Recoleccion de basura (cristales)",
     "puntaje": 2,
@@ -24,7 +24,7 @@ db.ranking.insertMany([
     "flg_participa": 0
 },
 {
-    "_id": ObjectId(),
+    "_id": ObjectId("60e9fe0e83de6776a8e27a83"),
     "voluntario": "Monica Villanueva",
     "tarea": "Cocina de alimentos a afectados",
     "puntaje": 23,
@@ -32,7 +32,7 @@ db.ranking.insertMany([
     "flg_participa": 1
 },
 {
-    "_id": ObjectId(),
+    "_id": ObjectId("60e9fe0e83de6776a8e27a84"),
     "voluntario": "Monica Villanueva",
     "tarea": "Examinacion medica",
     "puntaje": 22,
@@ -40,7 +40,7 @@ db.ranking.insertMany([
     "flg_participa": 1
 },
 {
-    "_id": ObjectId(),
+    "_id": ObjectId("60e9fe0e83de6776a8e27a85"),
     "voluntario": "Pablo Gonzalez",
     "tarea": "Reforestacion",
     "puntaje": 32,

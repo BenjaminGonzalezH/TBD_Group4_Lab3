@@ -21,7 +21,6 @@ public class EmergenciaRepoImp implements EmergenciaRepository {
     @Override
     public Emergencia crear(Emergencia emergencia) {
         MongoCollection<Emergencia> collection = database.getCollection(DB, Emergencia.class);
-        emergencia.set_id(new ObjectId());
         collection.insertOne(emergencia);
         return emergencia;
     }

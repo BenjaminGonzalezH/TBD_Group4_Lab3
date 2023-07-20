@@ -21,7 +21,6 @@ public class Estado_tareaRepoImp implements Estado_tareaRepository {
     @Override
     public Estado_tarea crear(Estado_tarea estado_tarea) {
         MongoCollection<Estado_tarea> collection = database.getCollection(DB, Estado_tarea.class);
-        estado_tarea.set_id(new ObjectId());
         collection.insertOne(estado_tarea);
         return estado_tarea;
     }

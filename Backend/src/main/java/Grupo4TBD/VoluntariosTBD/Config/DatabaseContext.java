@@ -13,11 +13,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DatabaseContext {
 
-    /*@Bean
-    MongoClient mongoClient(){
-        return MongoClients.create();
-    }*/
-
     @Bean
     MongoDatabase database() {
         //Configuracion de codec para parsear POJO

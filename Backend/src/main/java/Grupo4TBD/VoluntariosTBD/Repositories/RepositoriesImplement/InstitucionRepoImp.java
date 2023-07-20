@@ -21,7 +21,6 @@ public class InstitucionRepoImp implements InstitucionRepository {
     @Override
     public Institucion crear(Institucion institucion) {
         MongoCollection<Institucion> collection = database.getCollection(DB, Institucion.class);
-        institucion.set_id(new ObjectId());
         collection.insertOne(institucion);
         return institucion;
     }

@@ -2,20 +2,17 @@
 
 Instrucciones:
 
+- Instalar python y pip.
+- Instalar biblioteca pimongo de python con el comando pip install pymongo.
+- ejecutar script titulado "base_de_datos.py"
 - Abrir proyecto. Se sugiere usar el IDE Intellij IDEA.
-- Verificar credenciales de la BD en application.properties de la carpeta
-
+- Verificar credenciales de la BD en application.properties de la carpeta.
 ...\Backend\src\main\resources.
-
 - Ejecutar el archivo "VoluntariosTbdApplication.java".
-- Ir a consola de comandos del sistema operativo.
-- Cambiar dirección en la consola hasta llegar a la carpeta "frontend".
-- ejecutar comandos npm install y npm run serve (uno después del otro).
-- Copiar link de acceso local que aparece como mensaje:
+- Asegurese de realizar las actividades de la aplicación desde
+  POSTMAN.
 
-`	  ` App running at:
 
-- Local: http://localhost:3000/
 
 Versiones de tecnologías.
 
@@ -24,10 +21,8 @@ Versiones de tecnologías.
 - Lombok 1.18.26
 - Thymeleaf serie 3.x.x (Se recomienda cualquiera 3.0.x)
 - Java 17
-- jsonwebtoken 0.11.2
-- Sqlo2 1.6.0
-- PostGis 3.3.3
-- Node JS 18.16.0
-- Postgre SQL 12
+- MongoDB 6.0.7
 - Maven 4.0.0
-- Spring Security serie 5.0.x
+- Mongo Java Driver 3.12.10
+- python 3.11.10
+- pip 23.2

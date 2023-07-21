@@ -6,15 +6,13 @@ import org.bson.types.ObjectId;
 
 import java.sql.Date;
 
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Builder
-@Getter
-@Setter
 public class Tarea {
     @BsonId
-    private ObjectId _id;
+    private ObjectId id;
     private String nombre;
     private String descrip;
     private Integer cant_vol_requeridos;

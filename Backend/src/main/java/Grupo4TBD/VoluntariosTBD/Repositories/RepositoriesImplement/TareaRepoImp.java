@@ -19,7 +19,7 @@ public class TareaRepoImp implements TareaRepository {
     MongoDatabase database;
 
     @Override
-    public Tarea crear(Tarea tarea) {
+    public Tarea create(Tarea tarea) {
         MongoCollection<Tarea> collection = database.getCollection(DB, Tarea.class);
         collection.insertOne(tarea);
         return tarea;

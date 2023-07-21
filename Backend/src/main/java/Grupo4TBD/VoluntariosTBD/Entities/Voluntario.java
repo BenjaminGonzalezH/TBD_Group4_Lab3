@@ -4,14 +4,12 @@ import lombok.*;
 import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.types.ObjectId;
 
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Builder
-@Getter
-@Setter
 public class Voluntario {
     @BsonId
-    private ObjectId _id;
+    private ObjectId id;
     private String nombre;
 }

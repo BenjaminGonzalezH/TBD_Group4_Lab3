@@ -54,31 +54,29 @@ public class VoluntarioRepoImp implements VoluntarioRepository {
 
     @Override
     public List<Voluntario> obtenerVoluntariosPorTarea(String tarea) {
-        MongoCollection<Document> collection = database.getCollection("ranking");
+        MongoCollection<Document> collection = database.getCollection("tarea");
 
         // Obtiene voluntarios de la tarea
-        List<Document> pipeline = Arrays.asList(
-                new Document("$match",
-                        new Document("tarea", tarea)
-                ),
+        List<Document> pipeline = Arrays.asList(new Document("$match",
+                        new Document("name", tarea)),
+                new Document("$unwind",
+                        new Document("path", "$nombre_voluntario")),
                 new Document("$lookup",
                         new Document("from", "voluntario")
-                                .append("localField", "voluntario")
+                                .append("localField", "nombre_voluntario")
                                 .append("foreignField", "nombre")
-                                .append("as", "voluntariosRegistrados")
-                ),
-                new Document("$unwind", "$voluntariosRegistrados"),
+                                .append("as", "registrados")),
+                new Document("$unwind",
+                        new Document("path", "$registrados")),
                 new Document("$project",
-                        new Document("_id", "$voluntariosRegistrados._id")
-                                .append("nombre", "$voluntariosRegistrados.nombre")
-                )
-        );
+                        new Document("_id", "$registrados._id")
+                                .append("nombre", "$registrados.nombre")));
 
         // Convierte documentos a lista
         List<Voluntario> voluntarios = new ArrayList<>();
         List<Document> results = collection.aggregate(pipeline).into(new ArrayList<>());
         for (Document doc : results) {
-            ObjectId id = doc.getObjectId("id");
+            ObjectId id = doc.getObjectId("_id");
             String nombre = doc.getString("nombre");
             voluntarios.add(new Voluntario(id, nombre));
         }

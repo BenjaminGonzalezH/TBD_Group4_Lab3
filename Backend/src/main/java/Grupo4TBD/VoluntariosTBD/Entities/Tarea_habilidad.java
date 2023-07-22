@@ -4,14 +4,17 @@ import lombok.*;
 import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.types.ObjectId;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
 @Getter
 @Setter
-public class Voluntario {
+public class Tarea_habilidad {
     @BsonId
     private ObjectId _id;
-    private String nombre;
+    private List<String> Par;
+    private String Tarea;
 }

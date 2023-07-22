@@ -10,8 +10,9 @@ import org.bson.types.ObjectId;
 @Builder
 @Getter
 @Setter
-public class Voluntario {
+public class Vol_habilidad {
     @BsonId
     private ObjectId _id;
-    private String nombre;
+    private String voluntario;
+    private String habilidad;
 }

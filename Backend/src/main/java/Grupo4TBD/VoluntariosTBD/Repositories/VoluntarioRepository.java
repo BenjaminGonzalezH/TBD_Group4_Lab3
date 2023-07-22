@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface VoluntarioRepository {
     //Create
-    Voluntario create(Voluntario voluntario);
+    Voluntario crear(Voluntario voluntario);
 
     //Read
     List<Voluntario> getAll();

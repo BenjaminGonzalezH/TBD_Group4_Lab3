@@ -10,8 +10,12 @@ import org.bson.types.ObjectId;
 @Builder
 @Getter
 @Setter
-public class Voluntario {
+public class Ranking {
     @BsonId
     private ObjectId _id;
-    private String nombre;
+    private String voluntario;
+    private String tarea;
+    private Integer puntaje;
+    private Integer flg_invitado;
+    private Integer flg_participa;
 }

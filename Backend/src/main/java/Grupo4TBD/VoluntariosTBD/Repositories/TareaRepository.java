@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface TareaRepository {
     //Create
-    Tarea create(Tarea tarea);
+    Tarea crear(Tarea tarea);
 
     //Read
     List<Tarea> getAll();

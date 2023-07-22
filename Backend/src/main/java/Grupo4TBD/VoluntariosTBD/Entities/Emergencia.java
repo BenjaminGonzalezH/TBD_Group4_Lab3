@@ -12,15 +12,12 @@ import java.sql.Date;
 @Builder
 @Getter
 @Setter
-public class Tarea {
+public class Emergencia {
     @BsonId
     private ObjectId _id;
     private String nombre;
     private String descrip;
-    private Integer cant_vol_requeridos;
-    private Integer cant_vol_inscritos;
-    private Integer id_emergencia;
     private Date fecha_inicio;
     private Date fecha_fin;
-    private String emergencia;
+    private String institucion;
 }

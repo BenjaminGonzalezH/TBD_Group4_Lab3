@@ -20,7 +20,7 @@ public class VoluntarioRepoImp implements VoluntarioRepository {
     MongoDatabase database;
 
     @Override
-    public Voluntario create(Voluntario voluntario) {
+    public Voluntario crear(Voluntario voluntario) {
         MongoCollection<Voluntario> collection = database.getCollection(DB, Voluntario.class);
         collection.insertOne(voluntario);
         return voluntario;

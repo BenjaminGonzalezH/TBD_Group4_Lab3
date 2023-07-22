@@ -5,6 +5,7 @@ import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.types.ObjectId;
 
 import java.sql.Date;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,7 +15,7 @@ import java.sql.Date;
 @Setter
 public class Tarea {
     @BsonId
-    private ObjectId _id;
+    private ObjectId id;
     private String nombre;
     private String descrip;
     private Integer cant_vol_requeridos;
@@ -23,4 +24,5 @@ public class Tarea {
     private Date fecha_inicio;
     private Date fecha_fin;
     private String emergencia;
+    private List<String> nombre_voluntario;
 }

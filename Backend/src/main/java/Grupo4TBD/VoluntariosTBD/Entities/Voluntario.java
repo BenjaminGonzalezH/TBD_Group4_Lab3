@@ -12,6 +12,6 @@ import org.bson.types.ObjectId;
 @Setter
 public class Voluntario {
     @BsonId
-    private ObjectId _id;
+    private ObjectId id;
     private String nombre;
 }

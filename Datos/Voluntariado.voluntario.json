@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "64b99823926af925d5b625db"
+  },
+  "nombre": "Ricardo Martinez"
+},
+{
+  "_id": {
+    "$oid": "64b99c02926af925d5b628f5"
+  },
+  "nombre": "Juan Gomez Perez"
+},
+{
+  "_id": {
+    "$oid": "64b99c08926af925d5b628fb"
+  },
+  "nombre": "Belen Soto"
+},
+{
+  "_id": {
+    "$oid": "64b99c1d926af925d5b62937"
+  },
+  "nombre": "Monica Villanueva"
+},
+{
+  "_id": {
+    "$oid": "64b99c27926af925d5b62947"
+  },
+  "nombre": "Pablo Gonzalez"
+},
+{
+  "_id": {
+    "$oid": "64b99c2e926af925d5b6294b"
+  },
+  "nombre": "Francisca Vergara"
+},
+{
+  "_id": {
+    "$oid": "64b99c36926af925d5b62953"
+  },
+  "nombre": "Elsa Pato"
+},
+{
+  "_id": {
+    "$oid": "64b99c3c926af925d5b62959"
+  },
+  "nombre": "Armando Mocha"
+},
+{
+  "_id": {
+    "$oid": "64b99c42926af925d5b6295d"
+  },
+  "nombre": "Miguel Conde"
+},
+{
+  "_id": {
+    "$oid": "64b99c47926af925d5b62965"
+  },
+  "nombre": "Alma Marin"
+}]

@@ -35,21 +35,21 @@ public class VoluntarioRepoImp implements VoluntarioRepository {
     @Override
     public Voluntario show(ObjectId id) {
         MongoCollection<Voluntario> collection = database.getCollection(DB, Voluntario.class);
-        return collection.find(new Document("id", id)).first();
+        return collection.find(new Document("_id", id)).first();
     }
 
 
     @Override
     public String update(Voluntario voluntario, ObjectId id) {
         MongoCollection<Voluntario> collection = database.getCollection(DB, Voluntario.class);
-        collection.replaceOne(new Document("id", id), voluntario);
+        collection.replaceOne(new Document("_id", id), voluntario);
         return "Actualización exitosa";
     }
 
     @Override
     public void delete(ObjectId id) {
         MongoCollection<Voluntario> collection = database.getCollection(DB, Voluntario.class);
-        collection.deleteOne(new Document("id", id));
+        collection.deleteOne(new Document("_id", id));
     }
 
     @Override

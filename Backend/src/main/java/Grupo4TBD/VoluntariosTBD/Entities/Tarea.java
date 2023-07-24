@@ -4,7 +4,7 @@ import lombok.*;
 import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.types.ObjectId;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 @NoArgsConstructor

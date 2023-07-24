@@ -34,20 +34,20 @@ public class TareaRepoImp implements TareaRepository {
     @Override
     public Tarea show(ObjectId id) {
         MongoCollection<Tarea> collection = database.getCollection(DB, Tarea.class);
-        return collection.find(new Document("id", id)).first();
+        return collection.find(new Document("_id", id)).first();
     }
 
 
     @Override
     public String update(Tarea tarea, ObjectId id) {
         MongoCollection<Tarea> collection = database.getCollection(DB, Tarea.class);
-        collection.replaceOne(new Document("id", id), tarea);
+        collection.replaceOne(new Document("_id", id), tarea);
         return "Actualización exitosa";
     }
 
     @Override
     public void delete(ObjectId id) {
         MongoCollection<Tarea> collection = database.getCollection(DB, Tarea.class);
-        collection.deleteOne(new Document("id", id));
+        collection.deleteOne(new Document("_id", id));
     }
 }
